@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Aryan Shrivastava — Data Analyst | Power BI • SQL • Python • AI-Augmented Analytics" />
+    <title>Aryan Shrivastava · Data Analyst Portfolio</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: ['class', '[data-theme="dark"]'],
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'system-ui', 'sans-serif'],
+              display: ['Space Grotesk', 'Inter', 'sans-serif'],
+              mono: ['JetBrains Mono', 'monospace']
+            },
+            colors: {
+              brand: {
+                50: '#eef4ff',
+                100: '#dbe7ff',
+                200: '#bfd3ff',
+                300: '#93b3ff',
+                400: '#6088ff',
+                500: '#3a63ff',
+                600: '#2544f4',
+                700: '#1e33d6',
+                800: '#1d2caa',
+                900: '#1e2b85'
+              },
+              accent: {
+                400: '#22d3ee',
+                500: '#06b6d4',
+                600: '#0891b2'
+              }
+            },
+            animation: {
+              'gradient-x': 'gradient-x 12s ease infinite',
+              'float': 'float 6s ease-in-out infinite',
+              'float-slow': 'float 10s ease-in-out infinite',
+              'blob': 'blob 18s cubic-bezier(0.4,0,0.2,1) infinite',
+              'shimmer': 'shimmer 2.5s linear infinite'
+            },
+            keyframes: {
+              'gradient-x': {
+                '0%, 100%': { 'background-position': '0% 50%' },
+                '50%': { 'background-position': '100% 50%' }
+              },
+              'float': {
+                '0%, 100%': { transform: 'translateY(0px)' },
+                '50%': { transform: 'translateY(-20px)' }
+              },
+              'blob': {
+                '0%, 100%': { transform: 'translate(0,0) scale(1)' },
+                '33%': { transform: 'translate(40px,-30px) scale(1.1)' },
+                '66%': { transform: 'translate(-30px,20px) scale(0.95)' }
+              },
+              'shimmer': {
+                '0%': { 'background-position': '-1000px 0' },
+                '100%': { 'background-position': '1000px 0' }
+              }
+            }
+          }
+        }
+      };
+    </script>
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
+    <!-- AOS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body class="font-sans antialiased overflow-x-hidden bg-slate-950 text-slate-100 transition-colors duration-500">
+
+    <!-- Animated background blobs -->
+    <div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+        <div class="grid-overlay"></div>
+    </div>
+
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-4 flex items-center justify-between">
+            <a href="#home" class="flex items-center gap-2 group">
+                <span class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-500 to-accent-500 flex items-center justify-center font-display font-bold text-white shadow-lg shadow-brand-500/30 group-hover:scale-110 transition-transform">AS</span>
+                <span class="hidden sm:block font-display font-semibold tracking-tight text-lg">Aryan<span class="text-brand-400">.</span></span>
+            </a>
+
+            <div class="hidden lg:flex items-center gap-1 glass-nav rounded-full px-2 py-2">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#certifications" class="nav-link">Certifications</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+
+            <div class="flex items-center gap-3">
+                <button id="themeToggle" aria-label="Toggle theme" class="theme-btn">
+                    <i class="bi bi-moon-stars-fill icon-dark"></i>
+                    <i class="bi bi-sun-fill icon-light"></i>
+                </button>
+                <a href="#contact" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-brand-500 to-accent-500 text-white font-medium hover:shadow-lg hover:shadow-brand-500/40 transition-all hover:-translate-y-0.5">
+                    Hire me <i class="bi bi-arrow-right"></i>
+                </a>
+                <button id="menuBtn" class="lg:hidden theme-btn" aria-label="Menu">
+                    <i class="bi bi-list text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div id="mobileMenu" class="hidden lg:hidden glass-nav mx-4 mt-2 rounded-2xl p-4">
+            <div class="flex flex-col gap-1">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#certifications" class="nav-link">Certifications</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section id="home" class="relative min-h-screen flex items-center pt-28 pb-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 grid lg:grid-cols-12 gap-12 items-center w-full">
+            <div class="lg:col-span-7" data-aos="fade-right">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-chip text-sm mb-6">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                    </span>
+                    Available for new opportunities
+                </div>
+
+                <h1 class="font-display font-bold text-5xl sm:text-6xl lg:text-7xl leading-[1.05] tracking-tight">
+                    Turning data into
+                    <span class="block gradient-text animate-gradient-x">decisions that scale.</span>
+                </h1>
+
+                <p class="mt-6 text-lg sm:text-xl max-w-2xl opacity-80 leading-relaxed">
+                    Hi, I'm <span class="font-semibold text-brand-400">Aryan Shrivastava</span> — a Data Analyst with 4+ years of experience building enterprise BI, ETL pipelines, and AI-augmented analytics for sales, ops, and pharma teams.
+                </p>
+
+                <div class="mt-8 flex flex-wrap gap-3">
+                    <a href="#projects" class="btn-primary">
+                        <i class="bi bi-collection-play-fill"></i> View Projects
+                    </a>
+                    <a href="Aryan_Shrivastava_Resume_DA.pdf" target="_blank" class="btn-ghost">
+                        <i class="bi bi-download"></i> Download Resume
+                    </a>
+                </div>
+
+                <!-- Stat cards -->
+                <div class="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-4">
+                    <div class="stat-card">
+                        <div class="stat-num" data-target="4">0</div>
+                        <div class="stat-label">Years Exp.</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-num" data-target="15">0</div>
+                        <div class="stat-label">Dashboards</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-num" data-target="100">0</div>
+                        <div class="stat-label">BI Users</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-num" data-target="1"><span>M+</span></div>
+                        <div class="stat-label">Records ETL</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hero visual -->
+            <div class="lg:col-span-5 relative" data-aos="fade-left">
+                <div class="relative aspect-square max-w-lg mx-auto">
+                    <!-- Rotating rings -->
+                    <div class="absolute inset-0 rounded-full border border-brand-500/20 animate-spin-slow"></div>
+                    <div class="absolute inset-6 rounded-full border border-accent-500/20 animate-spin-reverse"></div>
+
+                    <!-- Center card -->
+                    <div class="absolute inset-12 rounded-3xl glass-card p-6 flex flex-col justify-between animate-float">
+                        <div class="flex items-center justify-between">
+                            <div class="flex gap-1.5">
+                                <span class="w-3 h-3 rounded-full bg-red-400/70"></span>
+                                <span class="w-3 h-3 rounded-full bg-yellow-400/70"></span>
+                                <span class="w-3 h-3 rounded-full bg-green-400/70"></span>
+                            </div>
+                            <span class="text-xs font-mono opacity-60">insights.pbix</span>
+                        </div>
+
+                        <!-- Mini chart -->
+                        <div class="flex-1 flex items-end gap-2 my-4">
+                            <div class="chart-bar" style="--h:45%; --d:0s;"></div>
+                            <div class="chart-bar" style="--h:70%; --d:.1s;"></div>
+                            <div class="chart-bar" style="--h:35%; --d:.2s;"></div>
+                            <div class="chart-bar" style="--h:85%; --d:.3s;"></div>
+                            <div class="chart-bar" style="--h:60%; --d:.4s;"></div>
+                            <div class="chart-bar" style="--h:92%; --d:.5s;"></div>
+                            <div class="chart-bar" style="--h:50%; --d:.6s;"></div>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-2 text-xs">
+                            <div class="rounded-lg bg-brand-500/10 p-3">
+                                <div class="opacity-60">Revenue</div>
+                                <div class="font-bold text-brand-400 text-lg">↑ 24.8%</div>
+                            </div>
+                            <div class="rounded-lg bg-accent-500/10 p-3">
+                                <div class="opacity-60">Efficiency</div>
+                                <div class="font-bold text-accent-400 text-lg">↑ 15%</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Floating badges -->
+                    <div class="absolute -top-4 -right-4 float-badge animate-float-slow" style="animation-delay:.5s">
+                        <i class="bi bi-bar-chart-fill text-brand-400"></i>
+                        <span>Power BI</span>
+                    </div>
+                    <div class="absolute -bottom-4 -left-4 float-badge animate-float-slow" style="animation-delay:1.5s">
+                        <i class="bi bi-database-fill text-accent-400"></i>
+                        <span>SQL</span>
+                    </div>
+                    <div class="absolute top-1/2 -right-8 float-badge animate-float" style="animation-delay:1s">
+                        <i class="bi bi-code-slash text-yellow-400"></i>
+                        <span>Python</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll indicator -->
+        <a href="#about" class="absolute bottom-6 left-1/2 -translate-x-1/2 opacity-60 hover:opacity-100 transition">
+            <i class="bi bi-mouse text-2xl"></i>
+            <div class="text-xs mt-1 text-center">scroll</div>
+        </a>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="relative py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="section-tag">01 · About</span>
+                <h2 class="section-title">The story behind the dashboards</h2>
+            </div>
+
+            <div class="grid lg:grid-cols-12 gap-8 items-start">
+                <div class="lg:col-span-7 space-y-6" data-aos="fade-right">
+                    <div class="glass-card p-8 rounded-3xl">
+                        <p class="text-lg leading-relaxed opacity-90">
+                            I'm a <span class="text-brand-400 font-semibold">Data Analyst at Cognizant</span> based in Bengaluru, where I design and ship enterprise BI, reporting, and ETL solutions across sales, operations, and pharmaceutical domains.
+                        </p>
+                        <p class="mt-4 leading-relaxed opacity-80">
+                            My toolkit spans <strong>Power BI, DAX, SQL, Python</strong> and Azure data services — but what I really enjoy is the crossover: turning messy raw data into fast, honest dashboards that leaders actually use. Lately I've been embedding <strong>AI-augmented analytics</strong> (Power BI Copilot, LLM-assisted analysis) to compress delivery cycles.
+                        </p>
+                    </div>
+
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div class="feature-card">
+                            <div class="feature-icon bg-brand-500/15 text-brand-400"><i class="bi bi-lightning-charge-fill"></i></div>
+                            <h4>Fast Delivery</h4>
+                            <p>15+ dashboards shipped for 100+ users with automated refresh pipelines.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon bg-accent-500/15 text-accent-400"><i class="bi bi-graph-up-arrow"></i></div>
+                            <h4>Performance</h4>
+                            <p>+15% data-processing speed, +25% report load performance via star-schema tuning.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon bg-purple-500/15 text-purple-400"><i class="bi bi-cpu-fill"></i></div>
+                            <h4>AI-Augmented</h4>
+                            <p>Copilot & LLM workflows cutting DAX/documentation time by ~20%.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon bg-emerald-500/15 text-emerald-400"><i class="bi bi-people-fill"></i></div>
+                            <h4>Stakeholder-First</h4>
+                            <p>Requirements to insights — partnered with cross-functional teams.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-5" data-aos="fade-left">
+                    <div class="glass-card p-8 rounded-3xl">
+                        <h3 class="font-display font-semibold text-xl mb-6 flex items-center gap-2">
+                            <i class="bi bi-person-badge text-brand-400"></i> Quick Facts
+                        </h3>
+                        <ul class="space-y-4">
+                            <li class="fact-item">
+                                <i class="bi bi-geo-alt-fill"></i>
+                                <div><span class="fact-label">Location</span><span class="fact-val">Bengaluru, India</span></div>
+                            </li>
+                            <li class="fact-item">
+                                <i class="bi bi-briefcase-fill"></i>
+                                <div><span class="fact-label">Role</span><span class="fact-val">Data Analyst @ Cognizant</span></div>
+                            </li>
+                            <li class="fact-item">
+                                <i class="bi bi-mortarboard-fill"></i>
+                                <div><span class="fact-label">Education</span><span class="fact-val">B.Tech, KIIT University</span></div>
+                            </li>
+                            <li class="fact-item">
+                                <i class="bi bi-translate"></i>
+                                <div><span class="fact-label">Languages</span><span class="fact-val">English, Hindi</span></div>
+                            </li>
+                            <li class="fact-item">
+                                <i class="bi bi-envelope-fill"></i>
+                                <div><span class="fact-label">Email</span><a href="mailto:aryan30102000@gmail.com" class="fact-val hover:text-brand-400">aryan30102000@gmail.com</a></div>
+                            </li>
+                            <li class="fact-item">
+                                <i class="bi bi-telephone-fill"></i>
+                                <div><span class="fact-label">Phone</span><span class="fact-val">+91 93659 87894</span></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="relative py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="section-tag">02 · Skills</span>
+                <h2 class="section-title">A stack built for insight</h2>
+                <p class="section-sub">From raw ingestion to executive dashboards — end-to-end analytics.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="0">
+                    <div class="skill-head">
+                        <div class="skill-ico bg-yellow-500/15 text-yellow-400"><i class="bi bi-bar-chart-line-fill"></i></div>
+                        <h3>BI & Visualization</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span>Power BI</span><span>DAX</span><span>Power Query</span><span>Power Pivot</span><span>Report Automation</span><span>Data Storytelling</span>
+                    </div>
+                </div>
+
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="skill-head">
+                        <div class="skill-ico bg-emerald-500/15 text-emerald-400"><i class="bi bi-code-square"></i></div>
+                        <h3>Python for Analysis</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span>Pandas</span><span>NumPy</span><span>Matplotlib</span><span>Seaborn</span><span>Plotly</span><span>scikit-learn</span>
+                    </div>
+                </div>
+
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="skill-head">
+                        <div class="skill-ico bg-blue-500/15 text-blue-400"><i class="bi bi-database-fill-gear"></i></div>
+                        <h3>Databases & SQL</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span>SQL Server</span><span>MySQL</span><span>T-SQL</span><span>Stored Procs</span><span>Views</span><span>Query Tuning</span>
+                    </div>
+                </div>
+
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="0">
+                    <div class="skill-head">
+                        <div class="skill-ico bg-pink-500/15 text-pink-400"><i class="bi bi-diagram-3-fill"></i></div>
+                        <h3>Data Modeling</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span>Star Schema</span><span>Snowflake Schema</span><span>Fact/Dim Design</span><span>Relationships</span><span>Aggregations</span><span>Perf Tuning</span>
+                    </div>
+                </div>
+
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="skill-head">
+                        <div class="skill-ico bg-cyan-500/15 text-cyan-400"><i class="bi bi-cloud-fill"></i></div>
+                        <h3>ETL & Cloud</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span>Azure Data Factory</span><span>Synapse</span><span>Azure SQL</span><span>Blob Storage</span><span>Databricks</span><span>Fabric</span>
+                    </div>
+                </div>
+
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="skill-head">
+                        <div class="skill-ico bg-purple-500/15 text-purple-400"><i class="bi bi-robot"></i></div>
+                        <h3>AI & GenAI</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span>Power BI Copilot</span><span>Prompt Engineering</span><span>ChatGPT</span><span>Claude</span><span>Copilot</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Proficiency bars -->
+            <div class="mt-16 grid md:grid-cols-2 gap-x-10 gap-y-6" data-aos="fade-up">
+                <div class="prof">
+                    <div class="prof-head"><span>Power BI · DAX</span><span>95%</span></div>
+                    <div class="prof-track"><div class="prof-fill" style="--w:95%"></div></div>
+                </div>
+                <div class="prof">
+                    <div class="prof-head"><span>SQL / T-SQL</span><span>90%</span></div>
+                    <div class="prof-track"><div class="prof-fill" style="--w:90%"></div></div>
+                </div>
+                <div class="prof">
+                    <div class="prof-head"><span>Python (Pandas / Viz)</span><span>82%</span></div>
+                    <div class="prof-track"><div class="prof-fill" style="--w:82%"></div></div>
+                </div>
+                <div class="prof">
+                    <div class="prof-head"><span>Azure Data Services</span><span>75%</span></div>
+                    <div class="prof-track"><div class="prof-fill" style="--w:75%"></div></div>
+                </div>
+                <div class="prof">
+                    <div class="prof-head"><span>Data Modeling</span><span>88%</span></div>
+                    <div class="prof-track"><div class="prof-fill" style="--w:88%"></div></div>
+                </div>
+                <div class="prof">
+                    <div class="prof-head"><span>AI-Augmented Analytics</span><span>80%</span></div>
+                    <div class="prof-track"><div class="prof-fill" style="--w:80%"></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="relative py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="section-tag">03 · Experience</span>
+                <h2 class="section-title">Where I've built things</h2>
+            </div>
+
+            <div class="relative pl-6 md:pl-0">
+                <!-- Timeline spine (desktop centered) -->
+                <div class="hidden md:block absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-brand-500/40 via-accent-500/40 to-transparent"></div>
+                <div class="md:hidden absolute left-2 top-0 bottom-0 w-px bg-gradient-to-b from-brand-500/40 via-accent-500/40 to-transparent"></div>
+
+                <div class="relative grid md:grid-cols-2 gap-8 md:gap-16 mb-10" data-aos="fade-up">
+                    <div class="md:text-right md:pr-10">
+                        <div class="timeline-dot"></div>
+                        <div class="glass-card p-6 rounded-2xl inline-block max-w-xl w-full text-left">
+                            <div class="flex items-center gap-3 mb-3">
+                                <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-brand-500 to-accent-500 flex items-center justify-center text-white font-bold">C</div>
+                                <div>
+                                    <h3 class="font-display font-semibold text-lg">Data Analyst</h3>
+                                    <p class="opacity-70 text-sm">Cognizant Technology Solutions · Bengaluru</p>
+                                </div>
+                            </div>
+                            <div class="text-xs font-mono opacity-70 mb-4"><i class="bi bi-calendar3"></i> Sep 2022 – Present</div>
+                            <ul class="space-y-2 text-sm opacity-90 leading-relaxed">
+                                <li>• Built & maintained <strong>15+ Power BI dashboards</strong> for 100+ users, reducing manual reporting effort by ~30%.</li>
+                                <li>• Automated ETL for <strong>1M+ records</strong> via Power Query & Azure Data Factory (~40% faster prep).</li>
+                                <li>• Wrote T-SQL, stored procs, views — improved data processing by <strong>15%</strong>.</li>
+                                <li>• Designed star-schema models — <strong>25% faster</strong> report loads on large datasets.</li>
+                                <li>• 50+ DAX measures for KPIs & time-intelligence across BUs.</li>
+                                <li>• Adopted <strong>Power BI Copilot</strong> — cut dashboard dev time ~20%.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="relative py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="section-tag">04 · Projects</span>
+                <h2 class="section-title">Selected work</h2>
+                <p class="section-sub">A few dashboards & analytics builds I'm proud of.</p>
+            </div>
+
+            <div class="grid lg:grid-cols-3 md:grid-cols-2 gap-6">
+                <article class="project-card" data-aos="fade-up">
+                    <div class="project-visual bg-gradient-to-br from-brand-500/30 to-purple-500/20">
+                        <i class="bi bi-capsule-pill project-glyph"></i>
+                    </div>
+                    <div class="project-body">
+                        <span class="chip">Power BI · Pharma</span>
+                        <h3>Commercial Pharma Sales Analytics</h3>
+                        <p>Enhanced dashboard features and drill-through for a major pharma client — <strong>10%</strong> decision-making improvement. Integrated secondary sales & custom regional visuals.</p>
+                        <div class="project-tags">
+                            <span>Power BI</span><span>DAX</span><span>SQL</span><span>Drill-through</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-visual bg-gradient-to-br from-accent-500/30 to-emerald-500/20">
+                        <i class="bi bi-people-fill project-glyph"></i>
+                    </div>
+                    <div class="project-body">
+                        <span class="chip">Power BI · Operations</span>
+                        <h3>Employee Productivity Dashboard</h3>
+                        <p>Centralized Power BI dashboard integrating <strong>5+ project-management tools</strong>, delivering real-time insight for 100+ employees on billable hours and allocation.</p>
+                        <div class="project-tags">
+                            <span>Power Pivot</span><span>DAX</span><span>Power Query</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-visual bg-gradient-to-br from-yellow-500/30 to-pink-500/20">
+                        <i class="bi bi-graph-up-arrow project-glyph"></i>
+                    </div>
+                    <div class="project-body">
+                        <span class="chip">Power BI · Sales</span>
+                        <h3>Sales & Profit / Loss Analysis</h3>
+                        <p>Weekly sales reports segmented by region, category and product for supply-chain decisions. Applied Power BI + SQL for extract, transform and visualization.</p>
+                        <div class="project-tags">
+                            <span>Power BI</span><span>SQL</span><span>Segmentation</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card" data-aos="fade-up">
+                    <div class="project-visual bg-gradient-to-br from-cyan-500/30 to-blue-500/20">
+                        <i class="bi bi-diagram-3 project-glyph"></i>
+                    </div>
+                    <div class="project-body">
+                        <span class="chip">Modeling · Perf</span>
+                        <h3>Star-Schema Optimization</h3>
+                        <p>Redesigned fact/dim tables and aggregations across analytics workloads — <strong>25% faster</strong> report loads on large datasets.</p>
+                        <div class="project-tags">
+                            <span>Star Schema</span><span>Aggregations</span><span>Relationships</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-visual bg-gradient-to-br from-pink-500/30 to-red-500/20">
+                        <i class="bi bi-cloud-arrow-up-fill project-glyph"></i>
+                    </div>
+                    <div class="project-body">
+                        <span class="chip">Azure · ETL</span>
+                        <h3>Azure Data Factory Pipeline</h3>
+                        <p>Ingest & transform 1M+ records from SQL Server, Excel and CSVs. Improved refresh reliability and cut prep time <strong>~40%</strong>.</p>
+                        <div class="project-tags">
+                            <span>ADF</span><span>Blob</span><span>Azure SQL</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-visual bg-gradient-to-br from-purple-500/30 to-brand-500/20">
+                        <i class="bi bi-robot project-glyph"></i>
+                    </div>
+                    <div class="project-body">
+                        <span class="chip">AI · Copilot</span>
+                        <h3>AI-Augmented DAX & Docs</h3>
+                        <p>Adopted Power BI Copilot + LLM workflows to accelerate DAX authoring, documentation and QA — cutting dashboard dev time <strong>~20%</strong>.</p>
+                        <div class="project-tags">
+                            <span>Copilot</span><span>Prompt Eng.</span><span>Docs</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- CERTIFICATIONS + EDUCATION -->
+    <section id="certifications" class="relative py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div data-aos="fade-right">
+                    <span class="section-tag">05 · Certifications</span>
+                    <h2 class="section-title text-left">Credentials</h2>
+
+                    <div class="mt-8 space-y-4">
+                        <div class="cert-card">
+                            <div class="cert-badge bg-yellow-500/15 text-yellow-400"><i class="bi bi-patch-check-fill"></i></div>
+                            <div>
+                                <h4>Microsoft Certified: Power BI Data Analyst Associate</h4>
+                                <p>PL-300 · Microsoft</p>
+                            </div>
+                        </div>
+                        <div class="cert-card">
+                            <div class="cert-badge bg-emerald-500/15 text-emerald-400"><i class="bi bi-patch-check-fill"></i></div>
+                            <div>
+                                <h4>ServiceNow Certified System Administrator</h4>
+                                <p>CSA · ServiceNow</p>
+                            </div>
+                        </div>
+                        <div class="cert-card">
+                            <div class="cert-badge bg-purple-500/15 text-purple-400"><i class="bi bi-patch-check-fill"></i></div>
+                            <div>
+                                <h4>Claude Certified Architect – Foundations</h4>
+                                <p>Anthropic</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div data-aos="fade-left">
+                    <span class="section-tag">06 · Education</span>
+                    <h2 class="section-title text-left">Academics</h2>
+
+                    <div class="mt-8">
+                        <div class="glass-card p-6 rounded-2xl">
+                            <div class="flex items-start gap-4">
+                                <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-brand-500 to-accent-500 flex items-center justify-center text-white text-xl font-bold shrink-0">
+                                    <i class="bi bi-mortarboard-fill"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-display font-semibold text-lg">Bachelor of Technology (B.Tech)</h4>
+                                    <p class="opacity-80">KIIT University · Odisha, India</p>
+                                    <p class="text-xs font-mono opacity-60 mt-2"><i class="bi bi-calendar3"></i> 2018 – 2022</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 grid grid-cols-3 gap-3">
+                            <div class="mini-card"><i class="bi bi-globe2 text-brand-400"></i><span>Statistical Analysis</span></div>
+                            <div class="mini-card"><i class="bi bi-lightbulb text-yellow-400"></i><span>A/B Testing</span></div>
+                            <div class="mini-card"><i class="bi bi-clock-history text-accent-400"></i><span>Forecast Analysis</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="relative py-24">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-10">
+            <div class="glass-card p-8 sm:p-14 rounded-3xl relative overflow-hidden" data-aos="zoom-in">
+                <div class="absolute -top-24 -right-24 w-72 h-72 rounded-full bg-brand-500/20 blur-3xl"></div>
+                <div class="absolute -bottom-24 -left-24 w-72 h-72 rounded-full bg-accent-500/20 blur-3xl"></div>
+
+                <div class="relative text-center max-w-2xl mx-auto">
+                    <span class="section-tag">07 · Contact</span>
+                    <h2 class="section-title">Let's build something insightful.</h2>
+                    <p class="section-sub">Have a dashboard, analytics or data-platform problem? I'd love to hear about it.</p>
+
+                    <div class="mt-8 flex flex-wrap justify-center gap-3">
+                        <a href="mailto:aryan30102000@gmail.com" class="btn-primary">
+                            <i class="bi bi-envelope-fill"></i> aryan30102000@gmail.com
+                        </a>
+                        <a href="tel:+919365987894" class="btn-ghost">
+                            <i class="bi bi-telephone-fill"></i> +91 93659 87894
+                        </a>
+                    </div>
+
+                    <div class="mt-8 flex justify-center gap-3">
+                        <a href="#" class="social-btn" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="social-btn" aria-label="GitHub"><i class="bi bi-github"></i></a>
+                        <a href="mailto:aryan30102000@gmail.com" class="social-btn" aria-label="Email"><i class="bi bi-envelope-fill"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-8 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm opacity-70">
+            <div>© <span id="year"></span> Aryan Shrivastava. Crafted with data & care.</div>
+            <div class="font-mono">Built with HTML · Tailwind · Bootstrap Icons</div>
+        </div>
+    </footer>
+
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
